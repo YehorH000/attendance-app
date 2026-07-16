@@ -1,61 +1,149 @@
-Attendance Admin — User Guide
-Overview
+# Attendance Admin
 
-Attendance Admin is a web-based system for tracking student attendance in courses and sessions. Only administrators have access to the dashboard, where they can add students, courses, sessions, and record attendance.
+## Overview
 
-How to Use the System
+Attendance Admin is a web-based system for managing student attendance across courses and sessions. Administrators can manage students, courses, sessions, and attendance records through a secure dashboard.
 
-1. Login
-   Open the application in your web browser (typically at http://localhost:3000 if running locally).
-   Enter your administrator login and password to access the dashboard.
-2. Navigating the Dashboard
-   Students Tab: View, add, edit, or remove students. Use the search field to quickly find a student by name or surname.
-   Courses Tab: View the list of courses. Add new courses or edit existing ones.
-   Sessions Tab: View sessions (lessons) by month. Add new sessions (specify course and date), or edit/delete existing sessions.
-   Attendance Tab: Select a session by month and date. Mark which students attended, and add public or private notes to each record. Save attendance for future reference.
-3. PWA Features
-   The system can be installed as a Progressive Web App. Click the "Install" button in your browser’s address bar or in the browser menu to add Attendance Admin to your home screen or desktop.
-4. Logout
-   Use the logout button in the navigation bar to end your session securely.
-   Technical Requirements
-   Node.js and npm installed on your machine.
-   PostgreSQL database available (local or remote).
-   Access credentials for an administrator account.
-   Installation (for developers)
+---
 
-Clone the repository:
+## Features
 
+- Secure administrator authentication
+- Student management (create, edit, delete, search)
+- Course management
+- Session management with monthly filtering
+- Attendance tracking with public and private notes
+- Responsive interface for desktop and mobile devices
+- Progressive Web App (PWA) support
+
+---
+
+## Technologies
+
+### Frontend
+
+- React
+- TypeScript
+- Material UI
+- Axios
+
+### Backend
+
+- Node.js
+- Express.js
+- Prisma ORM
+
+### Database
+
+- PostgreSQL
+
+---
+
+## Installation
+
+### Clone the repository
+
+```bash
 git clone https://github.com/xezo360hye/DIP392-1337.git
 cd DIP392-1337
+```
 
-Install backend dependencies:
+### Backend
 
+Install dependencies:
+
+```bash
 cd server
 npm install
-Configure environment variables:
-Copy .env.example to .env and fill in your database connection and secret keys.
+```
 
-Run database migrations and seed the initial admin:
+Create a `.env` file and configure your database connection.
 
+Run database migrations and generate Prisma Client:
+
+```bash
 npx prisma migrate dev
+npx prisma generate
+```
+
+Create the administrator account:
+
+```bash
 npm run seed
+```
 
 Start the backend:
 
+```bash
 npm run dev
+```
 
-Install frontend dependencies and start the frontend:
+### Frontend
 
+Install dependencies:
+
+```bash
 cd ../client
 npm install
 npm start
-Open in browser:
-http://localhost:3000
-Troubleshooting
-If the backend does not start, ensure the database is running and credentials in .env are correct.
-If you cannot log in, check that the admin user exists in the database.
-For more help, contact the system administrator or consult project documentation.
+```
 
-Test Login Data:
-User: admin
-Pass: admin123
+The application will be available at:
+
+```
+http://localhost:3000
+```
+
+---
+
+## User Guide
+
+### Login
+
+Sign in using an administrator account.
+
+Default credentials:
+
+- **Login:** `admin`
+- **Password:** `admin123`
+
+### Dashboard
+
+#### Students
+
+- Add, edit and delete students
+- Search students by name or surname
+- View attendance history
+
+#### Courses
+
+- Create, edit and delete courses
+
+#### Sessions
+
+- Create, edit and delete sessions
+- Filter sessions by month
+
+#### Attendance
+
+- Select a month and session
+- Mark attendance
+- Add public and private notes
+- Save attendance records
+
+### Progressive Web App
+
+The application can be installed as a Progressive Web App (PWA) using your browser's **Install App** option.
+
+### Logout
+
+Use the logout button to end the session securely.
+
+---
+
+## Troubleshooting
+
+- Make sure PostgreSQL is running.
+- Verify the `.env` configuration.
+- Run `npx prisma generate` if Prisma Client is missing.
+- Run `npm run seed` if the administrator account does not exist.
