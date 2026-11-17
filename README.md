@@ -44,8 +44,8 @@ Attendance Admin is a web-based system for managing student attendance across co
 ### Clone the repository
 
 ```bash
-git clone https://github.com/xezo360hye/DIP392-1337.git
-cd DIP392-1337
+git clone https://github.com/YehorH000/attendance-app.git
+cd attendance-app
 ```
 
 ### Backend
